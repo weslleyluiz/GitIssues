@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver" Version="4.0.0-beta4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="chromedriver.exe" />
+    <Resource Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="chromedriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

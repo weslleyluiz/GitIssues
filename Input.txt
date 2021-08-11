@@ -1,0 +1,69 @@
+﻿RN0011; Dados obrigatórios para o cadastro de um livro ; Para todo livro cadastrado é obrigatório o cadastro dos seguintes dados: autor, categoria, ano, título, editora, edição, ISBN, número de páginas, sinopse, dimensões (Altura, largura, peso e profundidade), grupo de precificação e código de barras. 
+
+RN0012 ; Associação com categorias ; Um livro pode estar associado com mais de uma categoria. 
+
+RN0013 ; Definindo valor de venda ; Todo livro após cadastrado deverá ser associado a um grupo de precificação onde o valor deverá ter como base a margem de lucro parametrizado para o grupo definido no cadastro do livro. 
+
+RN0014 ; Validar margem de lucro ; Um livro somente pode ter seu valor alterado se estiver dentro da margem de lucro definida pelo critério de grupo de precificação. Para um livro ter seu valor alterado para baixo da margem de lucro definida pelo grupo de precificação é necessária uma autorização de um gerente de vendas.  
+
+RN0015 ; Associar motivo de inativação ; Todo livro que for inativado manualmente deve ter uma justificativa e uma categoria de inativação associada. 
+
+RN0016 ; Associar motivo de inativação automática ; Todo cadastro de livro inativado de forma automática deve ser categorizado como FORA DE MERCADO. 
+
+RN0017 ; Associar motivo de ativação ; Todo livro que for ativado deve ter uma justificativa e uma categoria de ativação associada. 
+
+RN0021 ;  Cadastro de endereço de cobrança ; Para todo cliente cadastrado é obrigatório o registro de ao menos um endereço de cobrança.  
+
+RN0022 ;  Cadastro de endereço de entrega ; Para todo cliente cadastrado é obrigatório o registro de ao menos um endereço de entrega.  
+
+RN0023 ; Composição do registro de endereços ; Todo cadastro de endereços associados a clientes deve ser composto dos seguintes dados: Tipo de residência (Casa, Apartamento etc.), Tipo Logradouro, Logradouro, Número, Bairro, CEP, Cidade, Estado e País. Todos os campos anteriores são de preenchimento obrigatório. Opcionalmente pode ser preenchido um campo observações. 
+
+RN0024 ;  Composição do registro de cartões de crédito ; Todo cartão de crédito associado a um cliente deverá ser composto pelos seguintes campos: Nº do Cartão, Nome impresso no Cartão, Bandeira do Cartão e Código de Segurança. 
+
+RN0025 ;  Bandeiras permitidas para registro de cartões de crédito ; Todo cartão de crédito associado a um cliente deverá ser de alguma bandeira registrada no sistema. 
+
+RN0026 ;  Dados obrigatórios para o cadastro de um cliente ; Para todo cliente cadastrado é obrigatório o cadastro dos seguintes dados: Gênero, Nome, Data de Nascimento, CPF, Telefone (deve ser composto pelo tipo, DDD e número), e-mail, senha, endereço residencial. 
+
+RN0027 ; Ranking de cliente ; O cliente deve receber um ranking numérico com base no seu perfil de compra 
+
+RN0028 ; Validar retorno da operadora de cartão de crédito ; Somente deve-se dar baixa no estoque de itens cuja compra tenha sido efetivada, isso significa que o status não é mais EM PROCESSAMENTO. Todo item que faça parte de uma compra não aprovada deve ser desbloqueado e mantido em estoque. 
+
+RN0031 ; Validar estoque para adição de itens no carrinho ; Não deve ser permitido adicionar um item no carrinho de compra que não esteja disponível em estoque. Também deve ser validado a quantidade do item adicionado ao carrinho para que não seja adicionado mais itens do que o disponível em estoque. 
+
+RN0032 ; Validar estoque para compra ; Ao solicitar a compra de itens que estejam em um carrinho deve-se garantir que tais itens ainda permanecem disponíveis em estoque. 
+
+RN0033 ;  Uso de cupom promocional para pagamento ;  Apenas um cupom promocional pode ser utilizado por compra. 
+
+RN0034 ;  Uso de diversões cartões de crédito  ; Uma compra pode ser paga utilizando mais de um cartão de crédito, porém o valor mínimo para ser pago com cada cartão deve ser R$ 10,00. 
+
+RN0035 ; Uso de cupons junto a cartão de crédito ; Ao realizar pagamento utilizando cupons e cartões em conjunto, deve-se sempre considerar o valor máximo dos cupons. Somente neste caso é permitido que seja realizado um pagamento de um valor menor que R$ 10,00 no cartão. Exemplo: Uma compra de R$ 35,00 o cliente pode pagar R$ 30,00 utilizando cupons de troca ou cupons promocionais e pagar R$ 5,00 com cartão de crédito. 
+ 
+
+RN0036 ; Gerar cupom de troca ; Um cupom de troca deve ser gerado quando uma compra for paga com outros cupons em que o valor supere o valor da compra. Obs: O sistema não deve possibilitar o uso de cupons que supere a compra desnecessariamente, ex: a venda tem valor total de R$ 50,00 e o cliente possui três cupons, um com valor de R$ 20,00, outro com valor de R$ 40,00 e um terceiro com valor de R$ 35,00 o sistema não deve possibilitar o uso dos três cupons nesta compra, deve ser aceito apenas dois cupons e consequentemente gerar um cupom com a diferença de R$ 5,00, ou R$ 10,00 ou R$ 25,00. 
+
+RN0037 ; Validar Forma de Pagamento para finalização de compra ; Após a finalização da compra a forma de pagamento deve ser validada. Para tal deve-se validar a validade e veracidade dos cupons de troca e promocionais que porventura foram utilizados. Também deve ser validado o aceite da compra pela respectiva operadora de cartão de crédito. 
+
+RN0038 ; Alterar status da compra conforme processo de aprovação de forma de pagamento ; Caso as formas de pagamento tenham sido validadas com sucesso, a compra deve passar ter o status APROVADA. Caso contrário deve passar a ter o status REPROVADA. 
+
+RN0039 ; Alterar status da compra para transporte ; Toda compra selecionada para ser entregue por um administrador deve ter seu status alterado para EM TRANSPORTE. 
+
+RN0040 ; Alterar status da compra após entrega ; Toda compra selecionada como entregue por um administrador deve ter seu status alterado para ENTREGUE. 
+
+RN0041 ; Gerar pedido de troca ; Todo item selecionado para troca deve gerar um pedido de troca. Este pedido deverá terá o status EM TROCA. Caso o cliente solicite a troca de toda a compra o status do pedido deverá ser EM TROCA. 
+RN0042 ; Alterar status do pedido após recebimento de troca ; Ao confirmar que os itens de um pedido de troca ou uma compra com status EM TROCA foi recebido o status do pedido ou compra deverá ser TROCADO. 
+
+RN0043 ; Validação para solicitar troca ; Somente itens de pedidos com status ENTREGUE poderão receber solicitação de troca. 
+
+RN0044 ; Bloqueio de produtos ; Ao adicionar o item no carrinho, este deverá ser temporiamente bloqueado para que novas compras não sejam solicitadas. Tal bloqueio só deve ser retirado no caso da compra que gerou tal status não ser efetivada ou aprovada em um prazo parametrizado, o prazo deve levar em consideração o momento do bloqueio. Obs.: O prazo parametrizado deve ser relativo ao último item incluído no carrinho. 
+
+RNF0045 ; Retirar item do carrinho ; Toda vez que um item for desbloqueado todos itens do mesmo produto deverão ser retirados do carrinho de compra que gerou o prazo de bloqueio.  
+
+RNF0046; Gerar notificação de autorização de troca ; Quando o administrador autorizar uma troca o sistema deverá gerar uma notificação sobre tal ao cliente. 
+
+RN0051 ; Validar dados de estoque ; Para cada entrada em estoque, deve ser obrigatoriamente informado o produto, a quantidade, o valor de custo, fornecedor, e a data de entrada dos itens de produto. 
+
+RN005x ; Definir valor de item com diferentes custos ; Quando itens de um determinado livro forem registrados com valores de custo diferentes deverá ser calculado o valor de venda com base no grupo de precificação, porém o valor de todos itens deverão ser iguais, considerando então o maior valor de custo. 
+
+RN0061 ; Quantidade de itens ; Não deve ser permitido que seja realizado a entrada de itens de livros com quantidade igual a zero. 
+RN0062 ; Valor de custo ;Para todo item deve haver um valor de custo. 
+RNF0064 ; Data de entrada ; Não deve ser permitido que itens sejam registrados sem que uma data de entrada seja registrada. 
